@@ -7,9 +7,10 @@ public class Aluno {
 
     // método construtor
 
-    public Aluno (){
+    public Aluno() {
         this.nome = "sem nome";
     }
+
     public Aluno(int nroAluno, String nome, int idade, float p1, float p2) {
         this.nroAluno = nroAluno;
         this.nome = nome;
@@ -17,4 +18,19 @@ public class Aluno {
         this.p1 = p1;
         this.p2 = p2;
     }
-}
+
+    // Fazer média do aluno
+    public float notaFinal() {
+        return (this.p1 + this.p2) / 2;
+    }
+
+    public String passou() {
+        return (this.notaFinal() >= 6) ? "Aprovado" : "Reprovado";
+    }
+
+    public void dadosAluno(){
+        System.out.println("Nro. aluno " + this.nroAluno +
+                "Nome: " + this.nome +
+                "Situação: " + this.passou());
+    }
+        }
