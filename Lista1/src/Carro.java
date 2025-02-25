@@ -1,17 +1,16 @@
 import javax.swing.*;
 
 public class Carro {
-    // varíaveis
-    // do tipo primitivo
+    // variáveis
+    // cujo tipo de dados são primitivos
     public int ano;
     public float velocidade;
-    // do tipo classe
+    // cujo tipo de dados são Classes
     public String marca, modelo;
-
-    // métodos construtores
-    public Carro(){ // sem parâmetros
-        this.marca = "Marca inválida";
-        this.modelo = "Modelo inválido";
+    // método construtor
+    public Carro(){
+        this.marca = "marca não definida";
+        this.modelo = "modelo não definido";
     }
     public Carro(int ano, float velocidade, String marca, String modelo){
         this.ano = ano;
@@ -19,29 +18,28 @@ public class Carro {
         this.marca = marca;
         this.modelo = modelo;
     }
+    // método de instância
 
-    // métodos
     public void exibirDetalhes(){
-        // this representa o objeto que chama o método
-        JOptionPane.showMessageDialog(null,
-                "Marca: " + this.marca +
-                " Modelo " + this.modelo +
-                " Ano: " + this.ano +
-                " Velocidade " + this.velocidade);
+        // this representa o objeto que chama o método
+        JOptionPane.showMessageDialog(null, "Marca: " + this.marca +
+                "\n Modelo: " + this.modelo +
+                "\n Ano: " + this.ano +
+                "\n Velocidade: " + this.velocidade);
     }
 
-    // vai acelerar o carro de X unidades
+    // acelerar o carro de x unidades
     public void acelerar(float x){
         this.velocidade = this.velocidade + x;
     }
+    // frear o carro em x unidades
+    // velocidade não pode ficar negativa após a freagem
     public void frear(float x){
-        if (this.velocidade - x >= 0){
+        if (this.velocidade >= x){
             this.velocidade -= x;
         }
         else {
-            System.out.println("Não é possível frear");
+            JOptionPane.showMessageDialog(null, "Velocidade não pode ser negativa");
         }
     }
-
-
 }
